@@ -7,6 +7,6 @@
   </li>
   <li class="list-group-item">
     <span class="badge"><%= @category_count %></span>
-    <a href="/">Categories count:</a> 
+    <%= link_to 'Categories count', [:admin, :categories] %>
   </li>
 </ul>
