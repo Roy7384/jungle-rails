@@ -3,10 +3,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @product_count %></span>
-    <a>Products count:</a> 
+    <%= link_to 'Products count', [:admin, :products] %>
   </li>
   <li class="list-group-item">
     <span class="badge"><%= @category_count %></span>
-    <a>Categories count:</a> 
+    <a href="/">Categories count:</a> 
   </li>
 </ul>
