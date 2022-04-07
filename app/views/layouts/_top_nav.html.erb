@@ -47,21 +47,28 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
-        <li>
-          <%= link_to signup_path do %>
-            <%= fa_icon "user-plus" %> Signup
-          <% end %>
-        </li>
-        <li>
-          <%= link_to login_path do %>
-            <%= fa_icon "user" %> Login
-          <% end %>
-        </li>
-        <li>
-          <%= link_to logout_path do %>
-            <%= fa_icon "user-times" %> Logout
-          <% end %>
-        </li>
+
+        <% if current_user %>
+          <li>
+            <a>Signed in as <%= current_user.first_name %> <%= current_user.last_name %></a>
+          </li>
+          <li>
+            <%= link_to logout_path do %>
+              <%= fa_icon "user-times" %> Logout
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to signup_path do %>
+              <%= fa_icon "user-plus" %> Signup
+            <% end %>
+          </li>
+          <li>
+            <%= link_to login_path do %>
+              <%= fa_icon "user" %> Login
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
