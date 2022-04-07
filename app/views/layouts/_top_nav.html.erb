@@ -50,7 +50,9 @@
 
         <% if current_user %>
           <li>
-            <a>Signed in as <%= current_user.first_name %> <%= current_user.last_name %></a>
+            <a>Signed in as 
+              <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>
+            </a>
           </li>
           <li>
             <%= link_to logout_path do %>
