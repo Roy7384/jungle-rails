@@ -6,22 +6,25 @@ RSpec.describe Product, type: :model do
     @product_params = {
       :name => 'Monkey',
       :price => 100,
-      :quantity => 20
+      :quantity => 20,
+      :category_id => @category.id
     }
   end
   
   describe 'Validations' do
 
     it "should save a product when all four mandatory fields are given" do
-      puts @category.id
       product_params = @product_params.clone
       product = @category.products.new(product_params)
       expect(product.save).to be true
     end
     
-    # it "should not save a product when name is missing" do
-    #   puts @category.id
-    #   product_params
+    it "should have error message when saving product without name" do
+      product_params = @product_params.clone
+      product_params[:name] = nil
+      product = Product.create(product_params)
+      expect(product.errors.full_messages).to match(["Name can't be blank"])
+    end
 
   end
   
