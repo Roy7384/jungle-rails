@@ -34,5 +34,12 @@ RSpec.describe User, type: :model do
     subject.last_name = nil
     expect(subject).to_not be_valid  
   end
+
+  it "should not be valid when email is not unique" do
+    subject.save
+    newUser = subject.clone
+    newUser.email = 'Test@123.com'
+    expect(newUser.save).to be false
+  end
   
 end
