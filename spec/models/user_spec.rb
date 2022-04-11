@@ -41,5 +41,10 @@ RSpec.describe User, type: :model do
     newUser.email = 'Test@123.com'
     expect(newUser.save).to be false
   end
+
+  it "should not be valid when password is shorter than 6 characters" do
+    expect(subject).to_not be_valid 
+  end
+  
   
 end
