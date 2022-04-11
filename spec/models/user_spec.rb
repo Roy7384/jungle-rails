@@ -37,9 +37,8 @@ RSpec.describe User, type: :model do
 
   it "should not be valid when email is not unique" do
     subject.save
-    newUser = subject.clone
-    newUser.email = 'Test@123.com'
-    expect(newUser.save).to be false
+    newUser = User.new(first_name: "Joe", last_name: "Blow", email: "Test@123.com", password: "1234", password_confirmation: "1234")
+    expect(newUser).to_not be_valid
   end
 
   it "should not be valid when password is shorter than 6 characters" do
