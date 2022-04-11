@@ -8,4 +8,9 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid 
   end
   
+  it "should not be valid when password and password_confirmation not matching" do
+    subject.password = '4321' 
+    expect(subject).to_not be_valid
+  end
+  
 end
