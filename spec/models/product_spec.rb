@@ -14,8 +14,7 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
 
     it "should save a product when all four mandatory fields are given" do
-      product_params = @product_params.clone
-      product = @category.products.new(product_params)
+      product = @category.products.new(@product_params)
       expect(product).to be_valid
     end
     
