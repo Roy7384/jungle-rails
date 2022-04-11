@@ -16,34 +16,34 @@ RSpec.describe Product, type: :model do
     it "should save a product when all four mandatory fields are given" do
       product_params = @product_params.clone
       product = @category.products.new(product_params)
-      expect(product.save).to be true
+      expect(product).to be_valid
     end
     
     it "should have error message when saving product without name" do
-      product_params = @product_params.clone
-      product_params[:name] = nil
-      product = Product.create(product_params)
+      @product_params[:name] = nil
+      product = Product.new(@product_params)
+      expect(product).to_not be_valid
       expect(product.errors.full_messages).to match(["Name can't be blank"])
     end
 
     it "should have error message when saving product without price" do
-      product_params = @product_params.clone
-      product_params[:price_cents] = nil
-      product = Product.create(product_params)
+      @product_params[:price_cents] = nil
+      product = Product.new(@product_params)
+      expect(product).to_not be_valid
       expect(product.errors.full_messages).to include("Price can't be blank")
     end
 
     it "should have error message when saving product without quantity" do
-      product_params = @product_params.clone
-      product_params[:quantity] = nil
-      product = Product.create(product_params)
+      @product_params[:quantity] = nil
+      product = Product.new(@product_params)
+      expect(product).to_not be_valid
       expect(product.errors.full_messages).to include("Quantity can't be blank")
     end
 
     it "should have error message when saving product without category given" do
-      product_params = @product_params.clone
-      product_params[:category_id] = nil
-      product = Product.create(product_params)
+      @product_params[:category_id] = nil
+      product = Product.new(@product_params)
+      expect(product).to_not be_valid
       expect(product.errors.full_messages).to include("Category can't be blank")
     end
     
