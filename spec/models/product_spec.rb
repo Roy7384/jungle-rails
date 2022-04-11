@@ -33,6 +33,13 @@ RSpec.describe Product, type: :model do
       expect(product.errors.full_messages).to include("Price can't be blank")
     end
 
+    it "should have error message when saving product without quantity" do
+      product_params = @product_params.clone
+      product_params[:quantity] = nil
+      product = Product.create(product_params)
+      expect(product.errors.full_messages).to include("Quantity can't be blank")
+    end
+
     it "should have error message when saving product without category given" do
       product_params = @product_params.clone
       product_params[:category_id] = nil
