@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
     @category = Category.create(name: "Toy")
     @product_params = {
       :name => 'Monkey',
-      :price => 100,
+      :price_cents => 100,
       :quantity => 20,
       :category_id => @category.id
     }
@@ -28,10 +28,12 @@ RSpec.describe Product, type: :model do
 
     it "should have error message when saving product without price" do
       product_params = @product_params.clone
-      product_params[:price] = nil
+      product_params[:price_cents] = nil
       product = Product.create(product_params)
-      expect(product.errors.full_messages).to match(["Price can't be blank"])
+      expect(product.errors.full_messages).to include("Price can't be blank")
     end
+
+    
   end
   
 end
