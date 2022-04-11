@@ -71,7 +71,11 @@ RSpec.describe User, type: :model do
       expect(user).to be_instance_of(User)
     end
     
-
+    it "should successfully authenticate user with wrong case emails" do
+      user = User.authenticate_with_credentials('TEST@123.com', '123456') 
+      expect(user).to be_instance_of(User)
+    end
+    
     
   end
   
