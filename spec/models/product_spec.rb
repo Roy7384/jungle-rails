@@ -26,6 +26,12 @@ RSpec.describe Product, type: :model do
       expect(product.errors.full_messages).to match(["Name can't be blank"])
     end
 
+    it "should have error message when saving product without price" do
+      product_params = @product_params.clone
+      product_params[:price] = nil
+      product = Product.create(product_params)
+      expect(product.errors.full_messages).to match(["Price can't be blank"])
+    end
   end
   
 end
