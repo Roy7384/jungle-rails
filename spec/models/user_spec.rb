@@ -66,6 +66,11 @@ RSpec.describe User, type: :model do
       expect(user).to be_nil
     end
     
+    it "should successfully authenticate user with leading and trailing spaces in their email" do
+      user = User.authenticate_with_credentials(' test@123.com ', '123456') 
+      expect(user).to be_instance_of(User)
+    end
+    
 
     
   end
