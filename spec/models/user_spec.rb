@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  subject { described_class.new } 
+  subject { described_class.new(first_name: "Joe", last_name: "Blow", email: "test@123.com", password: "1234", password_confirmation: "1234") } 
 
-  it "should let me see what is going on" do
-    puts subject.inspect 
+  it "should be valid when all field are provided correctly" do
+    expect(subject).to be_valid 
   end
   
 end
