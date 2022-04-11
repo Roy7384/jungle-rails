@@ -51,6 +51,22 @@ RSpec.describe User, type: :model do
   end
 
   describe ".authenticate_with_credentials" do
+    before do
+      subject.save
+    end
+    
+
+    it "should return an instance of user when successfully authenticated" do
+      user = User.authenticate_with_credentials("test@123.com", "123456")
+      expect(user).to be_instance_of(User)
+    end
+    
+    it "should return nil when authentication failed" do
+      user = User.authenticate_with_credentials("test@123.com", "234567")
+      expect(user).to be_nil
+    end
+    
+
     
   end
   
