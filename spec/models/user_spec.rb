@@ -22,15 +22,15 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid 
   end
   
-  xit "should not be valid when email is missing" do
+  it "should not be valid when email is missing" do
     subject.email = nil
     expect(subject).to_not be_valid  
   end
-  xit "should not be valid when first_name is missing" do
+  it "should not be valid when first_name is missing" do
     subject.first_name = nil
     expect(subject).to_not be_valid  
   end
-  xit "should not be valid when last_name is missing" do
+  it "should not be valid when last_name is missing" do
     subject.last_name = nil
     expect(subject).to_not be_valid  
   end
