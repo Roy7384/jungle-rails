@@ -5,7 +5,7 @@ RSpec.feature "Visitor navigates to product details page via home page", type: :
   before :each do
     @category = Category.create! name: 'Apparel'
 
-    10.times do |n|
+    1.times do |n|
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
@@ -16,14 +16,16 @@ RSpec.feature "Visitor navigates to product details page via home page", type: :
     end
   end
 
-  scenario "They see all products" do
-    # ACT
+  scenario "They see the product details via clicking on the product" do
+    # Vist home page
     visit root_path
 
-    # DEBUG / VERIFY
-    save_screenshot
+    # Click on the first product
+    click_on "Details »"
 
-    expect(page).to have_css 'article.product', count: 10
+    # Wait and check if product detail page loads
+    expect(page).to have_css 'article.product-detail'
+    save_screenshot
   end
 
 end
