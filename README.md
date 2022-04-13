@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example. Features, bug fixes and tests are added to the existing code-base. 
+A mini e-commerce application built with Rails 4.2 for purposes of learning Rails by example. Features, bug fixes and tests are added to a existing code-base. 
 
 ## Features Added
 1. Sold out Badge by checking product quantity in view
@@ -23,6 +23,14 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 <p align="center">
   <img src="https://github.com/Roy7384/jungle-rails/blob/master/docs/orders.gif?raw=true" />
 </p>
+
+## Bug fixes
+1. HTTP authentication is added for admin access.
+2. When cart is empty, remove checkout related elements. Display message about empty cart and link to home page.
+
+## Automated tests
+1. Product and user model validation tests with RSpec.
+2. Four feature tests with RSpec, capybara, poltergeist and database_cleaner.
 
 ## Setup
 
