@@ -8,15 +8,21 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 2. Admin can create new categories and products achieved by adding necessary restful routes.
 
-!["admin"](https://github.com/Roy7384/jungle-rails/blob/master/docs/admin.gif?raw=true) 
+<p align="center">
+  <img src="https://github.com/Roy7384/jungle-rails/blob/master/docs/admin.gif?raw=true" />
+</p>
 
 3. User Authentication: visitor can sign up with unique email, name and password longer than 6 characters. User can logout from any page. Password are stored and authenticated with bcrypt.
 
-!["user"](https://github.com/Roy7384/jungle-rails/blob/master/docs/user.gif?raw=true) 
+<p align="center">
+  <img src="https://github.com/Roy7384/jungle-rails/blob/master/docs/user.gif?raw=true" />
+</p>
 
 4. Added order details page. Corresponding user name and email are associted with stripe charge.
 
-!["orders"](https://github.com/Roy7384/jungle-rails/blob/master/docs/orders.gif?raw=true) 
+<p align="center">
+  <img src="https://github.com/Roy7384/jungle-rails/blob/master/docs/orders.gif?raw=true" />
+</p>
 
 ## Setup
 
